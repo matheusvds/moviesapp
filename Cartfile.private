@@ -1,0 +1,3 @@
+github "Quick/Quick"
+github "Quick/Nimble"
+github "ashfurrow/Nimble-Snapshots" "6.6.0"
