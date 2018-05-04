@@ -10,6 +10,14 @@
 		0B45DACD209CEA5000CD92A8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DACC209CEA5000CD92A8 /* SnapKit.framework */; };
 		0B45DACF209CEA7200CD92A8 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DACC209CEA5000CD92A8 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B45DAD7209CEAA400CD92A8 /* moviesappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45DAD6209CEAA400CD92A8 /* moviesappTests.swift */; };
+		0B45DAE2209CEB0800CD92A8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DADE209CEB0800CD92A8 /* Nimble.framework */; };
+		0B45DAE3209CEB0800CD92A8 /* Nimble_Snapshots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DADF209CEB0800CD92A8 /* Nimble_Snapshots.framework */; };
+		0B45DAE4209CEB0800CD92A8 /* FBSnapshotTestCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DAE0209CEB0800CD92A8 /* FBSnapshotTestCase.framework */; };
+		0B45DAE5209CEB0800CD92A8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DAE1209CEB0800CD92A8 /* Quick.framework */; };
+		0B45DAE7209CEB1B00CD92A8 /* FBSnapshotTestCase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DAE0209CEB0800CD92A8 /* FBSnapshotTestCase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B45DAE8209CEB1B00CD92A8 /* Nimble_Snapshots.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DADF209CEB0800CD92A8 /* Nimble_Snapshots.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B45DAE9209CEB1B00CD92A8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DADE209CEB0800CD92A8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B45DAEA209CEB1B00CD92A8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DAE1209CEB0800CD92A8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11420DDB209CE20200453134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11420DDA209CE20200453134 /* AppDelegate.swift */; };
 		11420DDD209CE20200453134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11420DDC209CE20200453134 /* ViewController.swift */; };
 		11420DE0209CE20200453134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11420DDE209CE20200453134 /* Main.storyboard */; };
@@ -38,6 +46,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0B45DAE6209CEB0E00CD92A8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0B45DAE7209CEB1B00CD92A8 /* FBSnapshotTestCase.framework in CopyFiles */,
+				0B45DAE8209CEB1B00CD92A8 /* Nimble_Snapshots.framework in CopyFiles */,
+				0B45DAE9209CEB1B00CD92A8 /* Nimble.framework in CopyFiles */,
+				0B45DAEA209CEB1B00CD92A8 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +66,10 @@
 		0B45DAD4209CEAA400CD92A8 /* moviesappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moviesappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B45DAD6209CEAA400CD92A8 /* moviesappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moviesappTests.swift; sourceTree = "<group>"; };
 		0B45DAD8209CEAA400CD92A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B45DADE209CEB0800CD92A8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		0B45DADF209CEB0800CD92A8 /* Nimble_Snapshots.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble_Snapshots.framework; path = Carthage/Build/iOS/Nimble_Snapshots.framework; sourceTree = "<group>"; };
+		0B45DAE0209CEB0800CD92A8 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSnapshotTestCase.framework; path = Carthage/Build/iOS/FBSnapshotTestCase.framework; sourceTree = "<group>"; };
+		0B45DAE1209CEB0800CD92A8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		11420DD7209CE20200453134 /* moviesapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviesapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11420DDA209CE20200453134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11420DDC209CE20200453134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +84,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B45DAE2209CEB0800CD92A8 /* Nimble.framework in Frameworks */,
+				0B45DAE3209CEB0800CD92A8 /* Nimble_Snapshots.framework in Frameworks */,
+				0B45DAE4209CEB0800CD92A8 /* FBSnapshotTestCase.framework in Frameworks */,
+				0B45DAE5209CEB0800CD92A8 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +105,10 @@
 		0B45DACB209CEA5000CD92A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B45DAE0209CEB0800CD92A8 /* FBSnapshotTestCase.framework */,
+				0B45DADF209CEB0800CD92A8 /* Nimble_Snapshots.framework */,
+				0B45DADE209CEB0800CD92A8 /* Nimble.framework */,
+				0B45DAE1209CEB0800CD92A8 /* Quick.framework */,
 				0B45DACC209CEA5000CD92A8 /* SnapKit.framework */,
 			);
 			name = Frameworks;
@@ -132,6 +165,7 @@
 				0B45DAD0209CEAA400CD92A8 /* Sources */,
 				0B45DAD1209CEAA400CD92A8 /* Frameworks */,
 				0B45DAD2209CEAA400CD92A8 /* Resources */,
+				0B45DAE6209CEB0E00CD92A8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -277,6 +311,10 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = moviesappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -296,6 +334,10 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = moviesappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
