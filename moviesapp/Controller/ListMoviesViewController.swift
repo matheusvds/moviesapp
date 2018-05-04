@@ -13,7 +13,7 @@ class ListMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+        self.createCollectionViewMovie()
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,6 +22,39 @@ class ListMoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+}
+
+extension ListMoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate  {
+    
+    
+    fileprivate func createCollectionViewMovie() {
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: self.view.frame.size.width / 2.2, height: 200)
+        
+        let myCollectionView: UICollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        myCollectionView.dataSource = self
+        myCollectionView.delegate = self
+        myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        myCollectionView.backgroundColor = .white
+        
+        self.view.addSubview(myCollectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        myCell.backgroundColor = .blue
+        return myCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("User tapped on item \(indexPath.row)")
     }
     
     
