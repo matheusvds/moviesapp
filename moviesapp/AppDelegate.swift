@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let windows = UIWindow(frame: UIScreen.main.bounds)
+        
+        let navigationController = UINavigationController(rootViewController: ListMoviesViewController())
+        windows.rootViewController = navigationController
+        
+        self.window = windows
+        
+        windows.makeKeyAndVisible()
         return true
     }
 
