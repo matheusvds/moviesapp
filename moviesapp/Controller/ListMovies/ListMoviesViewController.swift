@@ -23,7 +23,9 @@ class ListMoviesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+    fileprivate func configLayout() {
+        self.navigationController?.navigationBar.backgroundColor = .gray
+    }
     
     fileprivate func createCollectionViewMovie() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
