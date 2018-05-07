@@ -23,11 +23,10 @@ class ListMoviesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    fileprivate func configLayout() {
-        self.navigationController?.navigationBar.backgroundColor = .gray
-    }
     
     fileprivate func createCollectionViewMovie() {
+        
+        self.title = "Movies"
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: self.view.frame.size.width / 2.2, height: 200)
@@ -35,7 +34,7 @@ class ListMoviesViewController: UIViewController {
         let myCollectionView: UICollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
-        myCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: "moviesCell")
+        myCollectionView.register(MovieCell.self, forCellWithReuseIdentifier: Constants.CellIdentifier.movieCellIdentifier)
         myCollectionView.backgroundColor = .white
         
         self.view.addSubview(myCollectionView)
@@ -49,7 +48,7 @@ extension ListMoviesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesCell", for: indexPath) as! MovieCell
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellIdentifier.movieCellIdentifier, for: indexPath) as! MovieCell
         return myCell
     }
     

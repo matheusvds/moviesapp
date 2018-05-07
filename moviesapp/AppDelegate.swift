@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let windows = UIWindow(frame: UIScreen.main.bounds)
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.barTintColor = UIColor(hexString: "F6CD64")
+        navigationBarAppearace.tintColor = UIColor.black
+        
         let navigationController = UINavigationController(rootViewController: ListMoviesViewController())
         windows.rootViewController = navigationController
         
