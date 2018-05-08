@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.barTintColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
+        navigationBarAppearace.isTranslucent = false
         navigationBarAppearace.tintColor = UIColor.black
         
         let navigationController = UINavigationController(rootViewController: ListMoviesViewController())

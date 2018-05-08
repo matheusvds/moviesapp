@@ -54,7 +54,6 @@ extension MovieCell: BaseViewProtocol {
             make.width.equalTo(self.snp.width)
             make.left.top.right.equalToSuperview()
             make.bottom.equalTo(self.snp.bottom).inset(40.0)
-            
         }
         
         titleMovie.snp.makeConstraints { make in
@@ -62,6 +61,7 @@ extension MovieCell: BaseViewProtocol {
             make.top.equalTo(thumbMovie.snp.bottom).inset(0)
             make.left.bottom.right.equalToSuperview()
         }
+        
     }
     
 }
