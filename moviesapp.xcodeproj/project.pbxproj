@@ -131,7 +131,7 @@
 		0B0440D020A0E33300195F5A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0B0440D120A0E33400195F5A /* APIError.swift */,
+				B24B524120A1EC2100B62D84 /* Error */,
 				0B0440D220A0E33400195F5A /* APIClient.swift */,
 				0B0440D320A0E33400195F5A /* Result.swift */,
 				0B0440D420A0E33400195F5A /* MovieClient.swift */,
@@ -194,18 +194,25 @@
 			isa = PBXGroup;
 			children = (
 				B2697A0820A0DECB00B7DA32 /* Util */,
-				B27AD88C209CFBA80039BF0B /* Service */,
 				B27AD88B209CFBA30039BF0B /* Model */,
+				0B0440D020A0E33300195F5A /* Network */,
+				0B45DAF920A0C73200CD92A8 /* Models */,
 				B27AD88A209CFB980039BF0B /* Controller */,
 				11420DDA209CE20200453134 /* AppDelegate.swift */,
 				11420DDE209CE20200453134 /* Main.storyboard */,
 				11420DE1209CE20200453134 /* Assets.xcassets */,
 				11420DE3209CE20200453134 /* LaunchScreen.storyboard */,
 				11420DE6209CE20200453134 /* Info.plist */,
-				0B0440D020A0E33300195F5A /* Network */,
-				0B45DAF920A0C73200CD92A8 /* Models */,
 			);
 			path = moviesapp;
+			sourceTree = "<group>";
+		};
+		B24B524120A1EC2100B62D84 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0B0440D120A0E33400195F5A /* APIError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		B2697A0820A0DECB00B7DA32 /* Util */ = {
@@ -230,13 +237,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B27AD88C209CFBA80039BF0B /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		B27AD88F209D0CBE0039BF0B /* ListMovies */ = {
