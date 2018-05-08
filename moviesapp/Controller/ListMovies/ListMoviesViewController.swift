@@ -10,10 +10,9 @@ import UIKit
 
 class ListMoviesViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.createCollectionViewMovie()
+        self.setupView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +38,18 @@ class ListMoviesViewController: UIViewController {
         
         self.view.addSubview(myCollectionView)
     }
+}
+
+extension ListMoviesViewController: BaseViewProtocol {
+    func buildViewHierarchy() {
+        self.createCollectionViewMovie()
+    }
+    
+    func setupConstraints() {
+      
+    }
+    
+    
 }
 
 extension ListMoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate  {
