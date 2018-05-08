@@ -10,9 +10,22 @@ import UIKit
 
 class ListMoviesViewController: UIViewController {
     
+    let client = MovieClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
+        
+        client.getFeed(from: .popular) { results in
+            
+            switch results {
+            case .success(let result):
+                guard let popularMovies = result?.results else { return }
+                print(popularMovies)
+            case .failure(let error):
+                print("\(error)")
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -21,7 +21,7 @@ class MovieClient: APIClient {
     }
     
     
-    func getFeed(from movieFeedType: MovieFeed, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
+    func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
         
         let endpoint = movieFeedType
         let request = endpoint.request
