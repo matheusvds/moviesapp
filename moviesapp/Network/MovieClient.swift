@@ -20,7 +20,6 @@ class MovieClient: APIClient {
         self.init(configuration: .default)
     }
     
-    
     func getFeed(from movieFeedType: MovieFeed, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
         
         let endpoint = movieFeedType

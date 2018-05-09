@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCell: UICollectionViewCell {
     
@@ -39,6 +40,18 @@ class MovieCell: UICollectionViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func fill(movie: Movie) {
+        self.titleMovie.text = movie.title
+        if let urlMovie = movie.poster_path {
+            self.thumbMovie.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w300\(urlMovie)")) { (image, error, cache, url) in
+                if error == nil {
+                    print("PASSOU")
+                }
+            }
+        }
+        
     }
 }
 
