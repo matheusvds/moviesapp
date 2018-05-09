@@ -12,7 +12,6 @@ protocol APIClient {
     
     var session: URLSession { get }
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void)
-    
 }
 
 extension APIClient {
@@ -48,7 +47,6 @@ extension APIClient {
     func fetch<T: Decodable>(with request: URLRequest, decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         
         let task = decodingTask(with: request, decodingType: T.self) { (json , error) in
-            
             //MARK: change to main queue
             DispatchQueue.main.async {
                 guard let json = json else {
