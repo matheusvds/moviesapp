@@ -18,6 +18,7 @@ class APIClientSpec: QuickSpec {
             
             var session: URLSessionMock!
             var endpoint: TheMovieDBAPI!
+            var sut: MovieClient!
             
             context("when requested the api to fetch task") {
                 beforeEach {
@@ -29,12 +30,13 @@ class APIClientSpec: QuickSpec {
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
+                    sut = MovieClient(session: session)
+                    
                 }
                 
                 it("should return invalid data error when data has invalid format") {
                     var sessionError: APIError!
                     
-                    let sut = MovieClient(session: session)
                     sut.fetch(with: endpoint.request, decode: { (json) -> MovieFeedResult? in
                         return nil
                     }, completion: { (result) in
@@ -60,12 +62,14 @@ class APIClientSpec: QuickSpec {
                     session.data = QuickSpec.loadJson(fromFileName: "popularMovies")
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
+                    
+                    sut = MovieClient(session: session)
 
                 }
                 
                 it("should return a decodable result when receive the expected parameters") {
                     var result: Decodable!
-                    let sut = MovieClient(session: session)
+                    
                     sut.decodingTask(with: endpoint.request, decodingType: MovieFeedResult.self, completionHandler: { (json, error) in
                         guard let movieFeed = json else { return }
                         result = movieFeed
@@ -77,7 +81,6 @@ class APIClientSpec: QuickSpec {
                 it("should return invalid data error when data has invalid format") {
                     var sessionError: APIError!
                     
-                    let sut = MovieClient(session: session)
                     sut.decodingTask(with: endpoint.request, decodingType: Data.self, completionHandler: { (json, error) in
                         guard let error = error else { return }
                         sessionError = error
@@ -88,9 +91,9 @@ class APIClientSpec: QuickSpec {
 
                 it("should return invalid data error when data is nil") {
                     session.data = nil
+                    
                     var sessionError: APIError!
                     
-                    let sut = MovieClient(session: session)
                     sut.decodingTask(with: endpoint.request, decodingType: MovieFeedResult.self, completionHandler: { (json, error) in
                         guard let error = error else { return }
                         sessionError = error
@@ -104,7 +107,6 @@ class APIClientSpec: QuickSpec {
                     
                     var sessionError: APIError!
                     
-                    let sut = MovieClient(session: session)
                     sut.decodingTask(with: endpoint.request, decodingType: MovieFeedResult.self, completionHandler: { (json, error) in
                         guard let error = error else { return }
                         sessionError = error
@@ -117,7 +119,6 @@ class APIClientSpec: QuickSpec {
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 0, httpVersion: nil, headerFields: nil)
                     var sessionError: APIError!
                     
-                    let sut = MovieClient(session: session)
                     sut.decodingTask(with: endpoint.request, decodingType: MovieFeedResult.self, completionHandler: { (json, error) in
                         guard let error = error else { return }
                         sessionError = error
