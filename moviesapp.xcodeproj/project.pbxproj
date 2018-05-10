@@ -40,6 +40,9 @@
 		B27AD88E209CFC480039BF0B /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD88D209CFC480039BF0B /* ListMoviesViewController.swift */; };
 		B27AD892209D0CEA0039BF0B /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD891209D0CEA0039BF0B /* MovieCell.swift */; };
 		B27AD895209D0DBB0039BF0B /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD894209D0DBB0039BF0B /* BaseViewProtocol.swift */; };
+		B2A606D520A390EC006E805E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; };
+		B2A606D620A390FA006E805E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; };
+		B2A606D720A390FA006E805E /* SDWebImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B2A606D720A390FA006E805E /* SDWebImage.framework in CopyFiles */,
 				0B45DACF209CEA7200CD92A8 /* SnapKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +115,7 @@
 		B27AD88D209CFC480039BF0B /* ListMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewController.swift; sourceTree = "<group>"; };
 		B27AD891209D0CEA0039BF0B /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		B27AD894209D0DBB0039BF0B /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		B2A606D420A390EB006E805E /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A606D520A390EC006E805E /* SDWebImage.framework in Frameworks */,
+				B2A606D620A390FA006E805E /* SDWebImage.framework in Frameworks */,
 				0B45DACD209CEA5000CD92A8 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +158,7 @@
 		0B45DACB209CEA5000CD92A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2A606D420A390EB006E805E /* SDWebImage.framework */,
 				0B45DAE0209CEB0800CD92A8 /* FBSnapshotTestCase.framework */,
 				0B45DADF209CEB0800CD92A8 /* Nimble_Snapshots.framework */,
 				0B45DADE209CEB0800CD92A8 /* Nimble.framework */,
@@ -615,6 +623,7 @@
 				);
 				INFOPLIST_FILE = moviesapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bootcampteam.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -633,6 +642,7 @@
 				);
 				INFOPLIST_FILE = moviesapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bootcampteam.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
