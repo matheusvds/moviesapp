@@ -12,16 +12,16 @@ class MovieClient: APIClient {
     
     let session: URLSession
     
-    init(configuration: URLSessionConfiguration) {
-        self.session = URLSession(configuration: configuration)
+    init(session: URLSession) {
+        self.session = session
     }
     
     convenience init() {
-        self.init(configuration: .default)
+        self.init(session: .shared)
     }
     
     
-    func getFeed(from movieFeedType: MovieFeed, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
+    func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
         
         let endpoint = movieFeedType
         let request = endpoint.request

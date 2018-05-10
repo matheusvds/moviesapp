@@ -14,15 +14,7 @@ class ListMoviesViewController: UIViewController {
         super.viewDidLoad()
         self.setupView()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+
     fileprivate func createCollectionViewMovie() {
         
         self.title = "Movies"

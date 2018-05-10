@@ -33,12 +33,12 @@ extension Endpoint {
     }
 }
 
-enum MovieFeed {
+enum TheMovieDBAPI {
     case popular
     case genres
 }
 
-extension MovieFeed: Endpoint {
+extension TheMovieDBAPI: Endpoint {
     
     var base: String {
         return "https://api.themoviedb.org"
