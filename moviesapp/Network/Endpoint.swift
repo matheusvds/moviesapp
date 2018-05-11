@@ -12,19 +12,34 @@ protocol Endpoint {
     
     var base: String { get }
     var path: String { get }
+    var query: String { get }
 }
 
 extension Endpoint {
     
     var apiKey: String {
-        return "api_key=780517cdd65386623d21c096f42be2ba"
+        return "780517cdd65386623d21c096f42be2ba"
     }
     
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
         components.path = path
-        components.query = apiKey
+        components.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
         return components
+    }
+    
+    var urlSearch: URLComponents {
+        var components = URLComponents(string: base)!
+        components.path = path
+        let searchQuery = URLQueryItem(name: "query", value: query)
+        let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
+        components.queryItems = [apiQuery, searchQuery]
+        return components
+    }
+    
+    var search: URLRequest {
+        let url = urlSearch.url!
+        return URLRequest(url: url)
     }
     
     var request: URLRequest {
@@ -36,6 +51,7 @@ extension Endpoint {
 enum TheMovieDBAPI {
     case popular
     case genres
+    case search(nameMovie: String)
 }
 
 extension TheMovieDBAPI: Endpoint {
@@ -44,12 +60,24 @@ extension TheMovieDBAPI: Endpoint {
         return "https://api.themoviedb.org"
     }
     
+    var query: String {
+        switch self {
+        case .search(let movieName):
+            return "\(movieName)"
+        default:
+            return ""
+        }
+    }
+    
     var path: String {
         switch self {
         case .popular:
             return "/3/movie/popular"
         case .genres:
             return "/3/genre/movie/list"
+        case .search:
+            return "/3/search/movie"
+            
         }
     }
 }
