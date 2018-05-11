@@ -51,6 +51,37 @@ class APIClientSpec: QuickSpec {
                 }
             }
             
+            context("when requested the api to fetch Movie") {
+                beforeEach {
+                    endpoint = .popular
+                    
+                    session = URLSessionMock()
+                    
+                    session.data = QuickSpec.loadJson(fromFileName: "popularMovies")
+                    session.error = nil
+                    session.response = HTTPURLResponse(url: endpoint.search.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
+                    
+                    sut = MovieClient(session: session)
+                    
+                }
+                
+                it("should return invalid data error when data has invalid format") {
+                    var sessionError: APIError!
+                    
+                    sut.fetch(with: endpoint.request, decode: { (json) -> MovieFeedResult? in
+                        return nil
+                    }, completion: { (result) in
+                        switch result {
+                        case .failure(let error):
+                            sessionError = error
+                        case .success:
+                            sessionError = nil
+                        }
+                    })
+                    expect(sessionError).toEventually(equal(APIError.jsonParsingFailure))
+                }
+            }
+            
             
             context("when requested the api to decode task") {
                 
