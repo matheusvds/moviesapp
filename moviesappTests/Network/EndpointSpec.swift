@@ -32,8 +32,13 @@ class EndpointSpec: QuickSpec {
                     expect(endpoint.path).to(equal("/3/genre/movie/list"))
                 }
                 
+                it("should return the correct endpoint for search") {
+                    endpoint = .search(nameMovie: "")
+                    expect(endpoint.path).to(equal("/3/search/movie"))
+                }
+                
                 it("should use the correct api key") {
-                    expect(endpoint.apiKey).to(equal("api_key=780517cdd65386623d21c096f42be2ba"))
+                    expect(endpoint.apiKey).to(equal("780517cdd65386623d21c096f42be2ba"))
                 }
                 
             }

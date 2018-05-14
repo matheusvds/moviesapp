@@ -22,7 +22,7 @@ class ListMovieView: UIView {
     }
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
+        let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: self.flowLayout)
         collectionView.backgroundColor = .white
         return collectionView
     }()

@@ -11,7 +11,6 @@ import SDWebImage
 
 class MovieCell: UICollectionViewCell {
     
-    let colorDefaultApp = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
     
     lazy var thumbMovie: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -25,14 +24,14 @@ class MovieCell: UICollectionViewCell {
         view.backgroundColor = .orange
         view.text = "Filme"
         view.backgroundColor = UIColor(red: 45/255.0, green: 48/255.0, blue: 71/255.0, alpha: 1)
-        view.textColor = colorDefaultApp
+        view.textColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
         view.textAlignment = .center
         return view
     }()
     
     lazy var loading: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(frame: .zero)
-        view.backgroundColor = colorDefaultApp
+        view.backgroundColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
         return view
     }()
     

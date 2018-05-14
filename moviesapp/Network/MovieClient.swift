@@ -31,4 +31,15 @@ class MovieClient: APIClient {
             return movieFeedResult
         }, completion: completion)
     }
+    
+    func searchMovie(whith movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
+        
+        let endpoint = movieFeedType
+        let search = endpoint.search
+        
+        fetch(with: search, decode: { json -> MovieFeedResult? in
+            guard let movieFeedResult = json as? MovieFeedResult else { return  nil }
+            return movieFeedResult
+        }, completion: completion)
+    }
 }
