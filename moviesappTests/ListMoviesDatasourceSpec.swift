@@ -42,6 +42,22 @@ class ListMoviesDatasourceSpec: QuickSpec {
                     expect(sut.collectionView.numberOfItems(inSection: 0)).to(be(1))
                 }
             }
+            
+            context("when searching") {
+                
+                
+                it("should filter movie by its title") {
+                    
+                }
+                
+                it("should return movie from filtered array") {
+                    
+                }
+                
+                it("should return number of filtered movies") {
+                    
+                }
+            }
         }
     }
 }
