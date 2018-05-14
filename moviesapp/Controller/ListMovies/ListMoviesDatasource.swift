@@ -34,7 +34,7 @@ class ListMoviesDatasource: NSObject {
     
     func setMovies(movies: [Movie]) {
         self.listMovies = movies
-        collectionView.reloadData()
+        reloadCollection()
     }
     
     func reloadCollection() {
