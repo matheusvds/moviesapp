@@ -12,7 +12,6 @@
 		0B0440D820A0E33400195F5A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0440D320A0E33400195F5A /* Result.swift */; };
 		0B0440D920A0E33400195F5A /* MovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0440D420A0E33400195F5A /* MovieClient.swift */; };
 		0B0440DA20A0E33400195F5A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0440D520A0E33400195F5A /* Endpoint.swift */; };
-		0B45DACD209CEA5000CD92A8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DACC209CEA5000CD92A8 /* SnapKit.framework */; };
 		0B45DACF209CEA7200CD92A8 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B45DACC209CEA5000CD92A8 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B45DAD7209CEAA400CD92A8 /* moviesappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B45DAD6209CEAA400CD92A8 /* moviesappTests.swift */; };
 		0B45DAE2209CEB0800CD92A8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DADE209CEB0800CD92A8 /* Nimble.framework */; };
@@ -33,6 +32,8 @@
 		11420DE0209CE20200453134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11420DDE209CE20200453134 /* Main.storyboard */; };
 		11420DE2209CE20200453134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11420DE1209CE20200453134 /* Assets.xcassets */; };
 		11420DE5209CE20200453134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11420DE3209CE20200453134 /* LaunchScreen.storyboard */; };
+		B21E296420A5DA750069A909 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B45DACC209CEA5000CD92A8 /* SnapKit.framework */; };
+		B21E296520A5DA750069A909 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; };
 		B24B524020A1E3CE00B62D84 /* ListMoviesViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B523F20A1E3CE00B62D84 /* ListMoviesViewSpec.swift */; };
 		B2697A0720A0C30E00B7DA32 /* GridLayoutMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2697A0620A0C30E00B7DA32 /* GridLayoutMovies.swift */; };
 		B2697A0A20A0DEE100B7DA32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2697A0920A0DEE100B7DA32 /* Constants.swift */; };
@@ -40,8 +41,6 @@
 		B27AD88E209CFC480039BF0B /* ListMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD88D209CFC480039BF0B /* ListMoviesViewController.swift */; };
 		B27AD892209D0CEA0039BF0B /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD891209D0CEA0039BF0B /* MovieCell.swift */; };
 		B27AD895209D0DBB0039BF0B /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AD894209D0DBB0039BF0B /* BaseViewProtocol.swift */; };
-		B2A606D520A390EC006E805E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; };
-		B2A606D620A390FA006E805E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; };
 		B2A606D720A390FA006E805E /* SDWebImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2A606D420A390EB006E805E /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -134,9 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2A606D520A390EC006E805E /* SDWebImage.framework in Frameworks */,
-				B2A606D620A390FA006E805E /* SDWebImage.framework in Frameworks */,
-				0B45DACD209CEA5000CD92A8 /* SnapKit.framework in Frameworks */,
+				B21E296420A5DA750069A909 /* SnapKit.framework in Frameworks */,
+				B21E296520A5DA750069A909 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +190,7 @@
 		0BE6D19120A23D7300C24868 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0BE6D19820A3A4B300C24868 /* URLSessionMock.swift */,
+				B259AD9420A620A600C9397D /* Mock */,
 				0BE6D19220A23DC100C24868 /* EndpointSpec.swift */,
 				0BE6D19420A251DE00C24868 /* APIClientSpec.swift */,
 			);
@@ -241,6 +239,14 @@
 				0B0440D120A0E33400195F5A /* APIError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		B259AD9420A620A600C9397D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				0BE6D19820A3A4B300C24868 /* URLSessionMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		B2697A0820A0DECB00B7DA32 /* Util */ = {
@@ -626,7 +632,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bootcampteam.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -645,7 +651,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bootcampteam.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
