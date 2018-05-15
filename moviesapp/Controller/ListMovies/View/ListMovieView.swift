@@ -35,6 +35,9 @@ class ListMovieView: UIView {
         return flowLayout
     }()
     
+    
+    // MARK: Functions
+    
 }
 
 extension ListMovieView: BaseViewProtocol {

@@ -19,12 +19,17 @@ class ListMoviesViewController: UIViewController {
     
     override func loadView() {
         self.view = listMovieView
+        createSearchBar()
     }
     
     override func viewDidLoad() {
         self.setupDatasourceAndDelegates()
-        createSearchBar()
         self.requestMovies()
+        self.title = "Movies"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,21 +39,14 @@ class ListMoviesViewController: UIViewController {
 
     
     fileprivate func createSearchBar() {
-        
-//        let height: CGFloat = 300 //whatever height you want to add to the existing height
-//        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
         self.searchController = UISearchController(searchResultsController:  nil)
-        
-        self.searchController.searchResultsUpdater = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
-
-        let leftNavBarButton = UIBarButtonItem(customView: searchController.searchBar)
-        self.navigationItem.leftBarButtonItem = leftNavBarButton
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.placeholder = "Digite o nome do filme"
+        self.navigationItem.searchController = searchController
     }
     
     
@@ -87,13 +85,12 @@ extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsU
     func updateSearchResults(for searchController: UISearchController) {
         
         if searchController.searchBar.text != ""{
-            
             self.searchMovie(movieSearch: searchController.searchBar.text!)
         }
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
-        self.requestMovies()
+       self.requestMovies()
     }
 }
 
