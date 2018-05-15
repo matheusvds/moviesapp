@@ -12,6 +12,17 @@ import Nimble
 
 @testable import moviesapp
 
+
+class ListMoviesDatasourceMock: ListMoviesDatasource {
+    var reloaded: Bool = false
+    
+    override func reloadCollection() {
+        super.reloadCollection()
+        reloaded = true
+    }
+    
+}
+
 class ListMoviesDatasourceSpec: QuickSpec {
     
     override func spec() {
@@ -45,11 +56,35 @@ class ListMoviesDatasourceSpec: QuickSpec {
                 
                 it("should have the delegate setup") {
                     expect(sut.collectionView.delegate).toNot(beNil())
+                    expect(sut.collectionView.dataSource).to(beAKindOf(ListMoviesDatasource.self))
                 }
                 
                 it("should have the datasource setup") {
                     expect(sut.collectionView.dataSource).toNot(beNil())
+                    expect(sut.collectionView.dataSource).to(beAKindOf(ListMoviesDatasource.self))
                 }
+            }
+            
+            context("when setting movies") {
+
+                var sut: ListMoviesDatasourceMock!
+                var movies: [Movie]!
+
+                beforeEach {
+                    let fakeCollection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+                    movies = [Movie(id: 0, title: "Ïronamn", poster_path: "/path", release_date: "2000", genre_ids: [], overview: "overview")]
+                    sut = ListMoviesDatasourceMock(listMovies: [], collectionView: fakeCollection)
+                    sut.setMovies(movies: movies)
+                }
+
+                it("should set listmovies in ListMoviesDataSource") {
+                    expect(sut.listMovies.first!.title).to(equal(movies.first!.title))
+                }
+                
+                it("should call the reload method") {
+                    expect(sut.reloaded).to(beTrue())
+                }
+
             }
             
             context("when searching") {

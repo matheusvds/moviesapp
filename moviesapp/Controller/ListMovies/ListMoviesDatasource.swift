@@ -23,7 +23,7 @@ class ListMoviesDatasource: NSObject {
         
     }
     
-    func setupCollectionView() {
+    private func setupCollectionView() {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
