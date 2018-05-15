@@ -9,10 +9,16 @@
 import Foundation
 import UIKit
 
+protocol MoviesDatasourceDelegateProtocol: class {
+    func didSelectCell(with movie: Movie)
+}
+
 class ListMoviesDatasource: NSObject {
     
     var listMovies: [Movie]
     var collectionView: UICollectionView
+    
+    weak var delegate: MoviesDatasourceDelegateProtocol?
     
     init(listMovies: [Movie], collectionView: UICollectionView) {
         self.listMovies = listMovies
@@ -54,13 +60,15 @@ extension ListMoviesDatasource: UICollectionViewDataSource {
         myCell.fill(movie: self.listMovies[indexPath.row])
         return myCell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
-    }
 }
 
-extension ListMoviesDatasource: UICollectionViewDelegate {}
+extension ListMoviesDatasource: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        delegate?.didSelectCell(with: self.listMovies[indexPath.row])
+    }
+    
+}
 
 
 extension ListMoviesDatasource:  UICollectionViewDelegateFlowLayout {
