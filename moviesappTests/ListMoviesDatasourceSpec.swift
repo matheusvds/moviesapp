@@ -13,6 +13,7 @@ import Nimble
 @testable import moviesapp
 
 class ListMoviesDatasourceSpec: QuickSpec {
+    
     override func spec() {
         describe("ListMoviesDatasource") {
             
@@ -40,6 +41,14 @@ class ListMoviesDatasourceSpec: QuickSpec {
                 
                 it("should have number of rows equals to movies size") {
                     expect(sut.collectionView.numberOfItems(inSection: 0)).to(be(1))
+                }
+                
+                it("should have the delegate setup") {
+                    expect(sut.collectionView.delegate).toNot(beNil())
+                }
+                
+                it("should have the datasource setup") {
+                    expect(sut.collectionView.dataSource).toNot(beNil())
                 }
             }
             

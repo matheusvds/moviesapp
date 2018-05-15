@@ -12,6 +12,13 @@ import Nimble
 @testable import moviesapp
 
 class APIClientSpec: QuickSpec {
+    
+    func loadJson(fromFileName fileName: String) -> Data {
+        let bundle = Bundle(for: type(of: self))
+        let filePath = bundle.path(forResource: fileName, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
+    }
+    
     override func spec() {
        
         describe("the 'MovieClient'") {
@@ -26,7 +33,7 @@ class APIClientSpec: QuickSpec {
                     
                     session = URLSessionMock()
                     
-                    session.data = QuickSpec.loadJson(fromFileName: "popularMovies")
+                    session.data = self.loadJson(fromFileName: "popularMovies")
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
@@ -57,7 +64,7 @@ class APIClientSpec: QuickSpec {
                     
                     session = URLSessionMock()
                     
-                    session.data = QuickSpec.loadJson(fromFileName: "popularMovies")
+                    session.data = self.loadJson(fromFileName: "popularMovies")
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.search.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
@@ -90,7 +97,7 @@ class APIClientSpec: QuickSpec {
                     
                     session = URLSessionMock()
                     
-                    session.data = QuickSpec.loadJson(fromFileName: "popularMovies")
+                    session.data = self.loadJson(fromFileName: "popularMovies")
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
