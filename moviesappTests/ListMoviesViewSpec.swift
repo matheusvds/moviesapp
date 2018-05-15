@@ -22,8 +22,8 @@ class ListMoviesViewSpec: QuickSpec {
         describe("a 'ListMoviesView'"){
             context("UI") {
                 it("should have the expected look and feel"){
-                    let sut = ListMoviesViewController()
-                    expect(sut) == snapshot("ListMoviesViewController")
+                    let sut = ListMovieView(frame: UIScreen.main.bounds)
+                    expect(sut) == snapshot("ListMovieView")
                 }
             }
         }

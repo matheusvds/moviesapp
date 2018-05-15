@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import SnapKit
 
-class ListMovieView: UIView {
+final class ListMovieView: UIView {
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect = .zero) {
+        super.init(frame: frame)
         setupView()
     }
     

@@ -34,10 +34,6 @@ class ListMoviesViewController: UIViewController {
 
     
     fileprivate func createSearchBar() {
-        
-//        let height: CGFloat = 300 //whatever height you want to add to the existing height
-//        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
         self.searchController = UISearchController(searchResultsController:  nil)
         
         self.searchController.searchResultsUpdater = self
