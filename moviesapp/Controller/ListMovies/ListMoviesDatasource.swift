@@ -23,7 +23,7 @@ class ListMoviesDatasource: NSObject {
         
     }
     
-    func setupCollectionView() {
+    private func setupCollectionView() {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
@@ -34,7 +34,7 @@ class ListMoviesDatasource: NSObject {
     
     func setMovies(movies: [Movie]) {
         self.listMovies = movies
-        collectionView.reloadData()
+        reloadCollection()
     }
     
     func reloadCollection() {

@@ -12,16 +12,6 @@ import Nimble
 
 @testable import moviesapp
 
-
-extension QuickSpec {
-    
-    static func loadJson(fromFileName fileName: String) -> Data {
-        let bundle = Bundle(for: moviesappTests.self)
-        let filePath = bundle.path(forResource: fileName, ofType: "json")!
-        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
-    }
-}
-
 class URLSessionDataTaskMock: URLSessionDataTask {
     private let closure: () -> Void
     
