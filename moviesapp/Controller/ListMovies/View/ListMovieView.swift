@@ -13,7 +13,7 @@ import SnapKit
 final class ListMovieView: UIView {
     
     // MARK: Properties
-    weak var searchProtocol: ListMoviewSearchProtocol?
+    weak var searchDelegate: ListMoviewSearchProtocol?
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -81,7 +81,7 @@ extension ListMovieView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if !searchText.isEmpty {
-            self.searchProtocol?.searchMovies(nameMovie: searchText)
+            self.searchDelegate?.searchMovies(nameMovie: searchText)
         }
     }
 }
