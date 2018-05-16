@@ -14,12 +14,9 @@ class ListMoviesViewController: UIViewController {
     let movieClient: MovieClient = MovieClient()
     let listMovieView: ListMovieView = ListMovieView()
     var movieDatasource: ListMoviesDatasource?
-    var searchController : UISearchController!
-
     
     override func loadView() {
         self.view = listMovieView
-        createSearchBar()
     }
     
     override func viewDidLoad() {
@@ -36,19 +33,6 @@ class ListMoviesViewController: UIViewController {
         super.viewWillAppear(animated)
         movieDatasource?.reloadCollection()
     }
-
-    
-    fileprivate func createSearchBar() {
-        self.searchController = UISearchController(searchResultsController:  nil)
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = false
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        self.searchController.searchResultsUpdater = self
-        self.searchController.searchBar.placeholder = "Digite o nome do filme"
-        self.navigationItem.searchController = searchController
-    }
-    
     
     fileprivate func requestMovies() {
         movieClient.getFeed(from: .popular) { results in
@@ -76,21 +60,18 @@ class ListMoviesViewController: UIViewController {
 
     fileprivate func setupDatasourceAndDelegates() {
         self.movieDatasource = ListMoviesDatasource(listMovies: [], collectionView: listMovieView.collectionView)
+        self.listMovieView.delegate = self
     }
 }
 
-
-extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
-    
-    func updateSearchResults(for searchController: UISearchController) {
+extension ListMoviesViewController: ListMoviewSearchProtocol {
+    func searchAllMovies() {
         
-        if searchController.searchBar.text != ""{
-            self.searchMovie(movieSearch: searchController.searchBar.text!)
-        }
     }
     
-    func didDismissSearchController(_ searchController: UISearchController) {
-       self.requestMovies()
+    func searchMovies(nameMovie: String) {
+        self.searchMovies(nameMovie: nameMovie)
     }
+    
+    
 }
-
