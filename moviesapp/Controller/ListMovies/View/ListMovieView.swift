@@ -39,12 +39,11 @@ final class ListMovieView: UIView {
     }()
     
     lazy var searchBar: UISearchBar = {
-       let searchBar = UISearchBar()
-        searchBar.placeholder = "Digite o nome do filme"
-        searchBar.tintColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
-        searchBar.backgroundColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
-        searchBar.delegate = self
-        return searchBar
+       let view = UISearchBar()
+        view.placeholder = "Digite o nome do filme"
+        view.isTranslucent = true
+        view.delegate = self
+        return view
     }()
     
     
@@ -82,6 +81,8 @@ extension ListMovieView: UISearchBarDelegate {
         
         if !searchText.isEmpty {
             self.searchDelegate?.searchMovies(nameMovie: searchText)
+        } else {
+            self.searchDelegate?.searchAllMovies()
         }
     }
 }

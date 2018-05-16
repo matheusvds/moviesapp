@@ -17,64 +17,39 @@ import UIKit
 
 class ListMoviesViewSpec: QuickSpec {
     
+    func loadJson(fromFileName fileName: String) -> Data {
+        let bundle = Bundle(for: type(of: self))
+        let filePath = bundle.path(forResource: fileName, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
+    }
+    
     override func spec() {
     
-        describe("a 'ListMoviesView'"){
-            context("UI ScreemShot") {
-                it("should have the expected look and feel"){
-                    let sut = ListMovieView(frame: UIScreen.main.bounds)
-                    expect(sut) == snapshot("ListMovieView")
+        describe("ListMoviesViewController") {
+            
+            context("verify view ") {
+                var session: URLSessionMock!
+                var endpoint: TheMovieDBAPI!
+                var movieClientMock: MovieClientMock!
+                var sut: ListMoviesViewController!
+                
+                beforeEach {
+                    endpoint = .popular
+                    
+                    session = URLSessionMock()
+                    session.data = self.loadJson(fromFileName: "searchMatrix")
+                    session.error = nil
+                    session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
+                    
+                    movieClientMock = MovieClientMock(session: session)
+                    sut = ListMoviesViewController(client: movieClientMock)
+                }
+                
+                it("") {
+                    
                 }
             }
         }
         
-        describe("UI SearchBarController") {
-            context("when created") {
-                
-                var sut: ListMoviesViewController!
-                
-                beforeEach {
-                    sut = ListMoviesViewController()
-                    
-                    
-//                    let fakeSearchBarController = UISearchController()
-//                    sut.searchController = fakeSearchBarController
-//                    sut.searchController.delegate = ListMoviesViewController()
-//                    sut.searchController.searchBar.placeholder = "Digite o nome do filme"
-                }
-//
-//                it("searchBarcontroller test nil") {
-//                    expect(sut.searchController.searchBar.text).to(beEmpty())
-//                }
-//
-//                it("searchBarcontroller test placeholder is Empty") {
-//                    expect(sut.searchController.searchBar.placeholder).toNot(beEmpty())
-//                }
-//
-//                it("searchBarcontroller test placeholder") {
-//                    expect(sut.searchController.searchBar.placeholder).to(equal("Digite o nome do filme"))
-//                }
-//
-//                it("searchBarController should not be nil"){
-//                    expect(sut.searchController).toNot(beNil())
-//                }
-//
-//                it("searchBarController dimsBackgroundDuringPresentation should not true") {
-//                    expect(sut.searchController.dimsBackgroundDuringPresentation).to(beFalse())
-//                }
-//
-//                it("searchBarController hidesNavigationBarDuringPresentation should not true") {
-//                    expect(sut.searchController.hidesNavigationBarDuringPresentation).to(beFalse())
-//                }
-//
-//                it("ListMoviesViewController should be of type ListMoviesViewController") {
-//                    expect(sut).to(beAKindOf(ListMoviesViewController.self))
-//                }
-                
-            }
-            
-            
-            
-        }
     }
 }

@@ -8,7 +8,12 @@
 
 import Foundation
 
-class MovieClient: APIClient {
+protocol BaseClient: APIClient {
+    func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
+    func searchMovie(whith movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
+}
+
+class MovieClient: BaseClient {
     
     let session: URLSession
     
@@ -19,7 +24,6 @@ class MovieClient: APIClient {
     convenience init() {
         self.init(session: .shared)
     }
-    
     
     func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
         
@@ -42,4 +46,7 @@ class MovieClient: APIClient {
             return movieFeedResult
         }, completion: completion)
     }
+    
+    
+    
 }

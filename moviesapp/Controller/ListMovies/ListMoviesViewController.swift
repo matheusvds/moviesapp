@@ -11,12 +11,21 @@ import UIKit
 class ListMoviesViewController: UIViewController {
     
     // MARK: Properties
-    let movieClient: MovieClient = MovieClient()
+    var movieClient: BaseClient
     let listMovieView: ListMovieView = ListMovieView()
     var movieDatasource: ListMoviesDatasource?
     
     override func loadView() {
         self.view = listMovieView
+    }
+    
+    init(client: BaseClient = MovieClient()) {
+        self.movieClient = client
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("You should't use storyboard in this app")
     }
     
     override func viewDidLoad() {
@@ -72,6 +81,4 @@ extension ListMoviesViewController: ListMoviewSearchProtocol {
     func searchMovies(nameMovie: String) {
         self.searchMovie(movieSearch: nameMovie)
     }
-    
-    
 }
