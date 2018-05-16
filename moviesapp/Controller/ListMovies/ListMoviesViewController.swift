@@ -61,7 +61,7 @@ class ListMoviesViewController: UIViewController {
     }
     
     fileprivate func searchMovie(movieSearch: String) {
-        movieClient.searchMovie(whith: .search(nameMovie: movieSearch)) { results in
+        movieClient.getFeed(from: .search(nameMovie: movieSearch)) { results in
             switch results {
             case .success(let result):
                 guard let popularMovies = result?.results else { return }
