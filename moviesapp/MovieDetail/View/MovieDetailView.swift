@@ -12,6 +12,7 @@ import UIKit
 final class MovieDetailView: UIView {
     
     let movie: Movie
+    var movieClient: MovieClient
     
     lazy var movieImage: UIImageView = {
         let view = UIImageView()
@@ -20,17 +21,17 @@ final class MovieDetailView: UIView {
     }()
     
     lazy var movieName: MovieAttributeView = {
-        let view = MovieAttributeView(name: self.movie.title ?? "")
+        let view = MovieAttributeView(name: self.movie.title ?? "Não foi possível achar um nome")
         return view
     }()
     
     lazy var releaseDate: MovieAttributeView = {
-        let view = MovieAttributeView(name: self.movie.release_date ?? "")
+        let view = MovieAttributeView(name: self.movie.release_date?.formatDate() ?? "Não foi possível achar uma data")
         return view
     }()
     
     lazy var genres: MovieAttributeView = {
-        let view = MovieAttributeView(name: "Action, Adventure")
+        let view = MovieAttributeView(name: "Não há gêneros")
         return view
     }()
     
@@ -48,9 +49,11 @@ final class MovieDetailView: UIView {
         return view
     }()
     
-    init(frame: CGRect = .zero, movie: Movie) {
+    init(frame: CGRect = .zero, movie: Movie, client: MovieClient = MovieClient()) {
         self.movie = movie
+        self.movieClient = client
         super.init(frame: frame)
+        setGenres()
         setupView()
         loadImage()
     }
@@ -66,6 +69,37 @@ final class MovieDetailView: UIView {
                 if error == nil {
                     self.loading.stopAnimating()
                 }
+            }
+        }
+    }
+    
+    private func setGenres() {
+        var genresNames = ""
+        matchGenres { (genres) in
+            if genres.count > 0 {
+                _ = genres.map { genresNames.append("\($0.name ?? ""), ") }
+                self.genres.word.text = genresNames.removeLast(characters: 2)
+            }
+        }
+    }
+    
+    private func matchGenres(completion: @escaping ([Genre]) -> Void) {
+        loadGenres { (allGenres) in
+            let matchGenres = allGenres.filter({ (element) -> Bool in
+                return self.movie.genre_ids!.contains(where: { $0 == element.id })
+            })
+            completion(matchGenres)
+        }
+    }
+    
+    private func loadGenres(completion: @escaping ([Genre]) -> Void) {
+        movieClient.getGenres(from: .genres) { results in
+            switch results {
+            case .success(let result):
+                guard let genres = result?.genres else { return }
+                completion(genres)
+            case .failure:
+                completion([])
             }
         }
     }
@@ -125,11 +159,8 @@ extension MovieDetailView: BaseViewProtocol {
             make.bottom.equalTo(self)
         }
     }
-    
-    
+        
     func setupAdditionalConfiguration() {
         self.backgroundColor = .white
     }
-    
-    
 }

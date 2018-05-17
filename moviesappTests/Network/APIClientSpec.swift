@@ -13,15 +13,9 @@ import Nimble
 
 class APIClientSpec: QuickSpec {
     
-    func loadJson(fromFileName fileName: String) -> Data {
-        let bundle = Bundle(for: type(of: self))
-        let filePath = bundle.path(forResource: fileName, ofType: "json")!
-        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
-    }
-    
     override func spec() {
        
-        describe("the 'MovieClient'") {
+        describe("the 'APIClient'") {
             
             var session: URLSessionMock!
             var endpoint: TheMovieDBAPI!
@@ -59,14 +53,15 @@ class APIClientSpec: QuickSpec {
             }
             
             context("when requested the api to fetch Movie") {
-                beforeEach {
+                
+                beforeEach { 
                     endpoint = .popular
                     
                     session = URLSessionMock()
                     
                     session.data = self.loadJson(fromFileName: "popularMovies")
                     session.error = nil
-                    session.response = HTTPURLResponse(url: endpoint.search.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
+                    session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
                     sut = MovieClient(session: session)
                     
@@ -86,7 +81,7 @@ class APIClientSpec: QuickSpec {
                         }
                     })
                     expect(sessionError).toEventually(equal(APIError.jsonParsingFailure))
-                }
+                }    
             }
             
             
@@ -166,6 +161,12 @@ class APIClientSpec: QuickSpec {
                 }
             }
         }
+    }
+    
+    func loadJson(fromFileName fileName: String) -> Data {
+        let bundle = Bundle(for: type(of: self))
+        let filePath = bundle.path(forResource: fileName, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
     }
 }
 

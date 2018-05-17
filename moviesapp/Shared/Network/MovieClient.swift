@@ -10,7 +10,6 @@ import Foundation
 
 protocol BaseClient: APIClient {
     func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
-    func searchMovie(whith movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
 }
 
 class MovieClient: BaseClient {
@@ -36,13 +35,13 @@ class MovieClient: BaseClient {
         }, completion: completion)
     }
     
-    func searchMovie(whith movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
+    func getGenres(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<GenreFeed?, APIError>) -> Void) {
         
         let endpoint = movieFeedType
-        let search = endpoint.search
+        let request = endpoint.request
         
-        fetch(with: search, decode: { json -> MovieFeedResult? in
-            guard let movieFeedResult = json as? MovieFeedResult else { return  nil }
+        fetch(with: request, decode: { json -> GenreFeed? in
+            guard let movieFeedResult = json as? GenreFeed else { return  nil }
             return movieFeedResult
         }, completion: completion)
     }

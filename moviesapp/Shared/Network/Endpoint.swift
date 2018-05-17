@@ -12,7 +12,7 @@ protocol Endpoint {
     
     var base: String { get }
     var path: String { get }
-    var query: String { get }
+    var query: String? { get }
 }
 
 extension Endpoint {
@@ -24,23 +24,13 @@ extension Endpoint {
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
         components.path = path
-        components.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
-        return components
-    }
-    
-    var urlSearch: URLComponents {
-        var components = URLComponents(string: base)!
-        components.path = path
         let searchQuery = URLQueryItem(name: "query", value: query)
         let apiQuery = URLQueryItem(name: "api_key", value: apiKey)
         components.queryItems = [apiQuery, searchQuery]
+        components.queryItems = components.queryItems?.filter { $0.value != nil}
         return components
     }
     
-    var search: URLRequest {
-        let url = urlSearch.url!
-        return URLRequest(url: url)
-    }
     
     var request: URLRequest {
         let url = urlComponents.url!
@@ -60,12 +50,12 @@ extension TheMovieDBAPI: Endpoint {
         return "https://api.themoviedb.org"
     }
     
-    var query: String {
+    var query: String? {
         switch self {
         case .search(let movieName):
             return "\(movieName)"
         default:
-            return ""
+            return nil
         }
     }
     

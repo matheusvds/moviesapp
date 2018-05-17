@@ -56,7 +56,7 @@ class ListMoviesViewController: UIViewController {
     }
     
     fileprivate func searchMovie(movieSearch: String) {
-        movieClient.searchMovie(whith: .search(nameMovie: movieSearch)) { results in
+        movieClient.getFeed(from: .search(nameMovie: movieSearch)) { results in
             switch results {
             case .success(let result):
                 guard let popularMovies = result?.results else { return }
@@ -70,6 +70,8 @@ class ListMoviesViewController: UIViewController {
     fileprivate func setupDatasourceAndDelegates() {
         self.movieDatasource = ListMoviesDatasource(listMovies: [], collectionView: listMovieView.collectionView)
         self.listMovieView.searchDelegate = self
+        self.movieDatasource?.delegate = self
+
     }
 }
 
@@ -80,16 +82,16 @@ extension ListMoviesViewController: ListMoviewSearchProtocol {
     
     func searchAllMovies() {
         self.requestMovies()
-        self.movieDatasource?.delegate = self
+        self.listMovieView.searchDelegate = self
     }
 }
+
 
 extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         
         if searchController.searchBar.text != ""{
-            
             self.searchMovie(movieSearch: searchController.searchBar.text!)
         }
     }
