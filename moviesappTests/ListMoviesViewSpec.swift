@@ -37,7 +37,7 @@ class ListMoviesViewSpec: QuickSpec {
                     endpoint = .popular
                     
                     session = URLSessionMock()
-                    session.data = self.loadJson(fromFileName: "searchMatrix")
+                    session.data = self.loadJson(fromFileName: "popularMovies")
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
@@ -46,7 +46,7 @@ class ListMoviesViewSpec: QuickSpec {
                 }
                 
                 it("") {
-                    
+                    sut.viewDidLoad()
                 }
             }
         }
