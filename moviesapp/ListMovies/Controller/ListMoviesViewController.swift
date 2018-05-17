@@ -85,15 +85,6 @@ extension ListMoviesViewController: ListMoviewSearchProtocol {
     }
 }
 
-extension ListMoviesViewController: ListMoviewSearchProtocol {
-    func searchMovies(nameMovie: String) {
-        self.searchMovie(movieSearch: nameMovie)
-    }
-    
-    func searchAllMovies() {
-        self.requestMovies()
-    }
-}
 
 extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     

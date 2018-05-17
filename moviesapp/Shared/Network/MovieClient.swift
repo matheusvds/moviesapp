@@ -10,10 +10,6 @@ import Foundation
 
 protocol BaseClient: APIClient {
     func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
-<<<<<<< HEAD:moviesapp/Shared/Network/MovieClient.swift
-=======
-    func searchMovie(whith movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
->>>>>>> development:moviesapp/Network/MovieClient.swift
 }
 
 class MovieClient: BaseClient {
