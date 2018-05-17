@@ -20,13 +20,24 @@ class MovieClient: APIClient {
         self.init(session: .shared)
     }
     
-    func get<T:Decodable>(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<T?, APIError>) -> Void) {
+    func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void) {
         
         let endpoint = movieFeedType
         let request = endpoint.request
         
-        fetch(with: request, decode: { json -> T? in
-            guard let movieFeedResult = json as? T else { return  nil }
+        fetch(with: request, decode: { json -> MovieFeedResult? in
+            guard let movieFeedResult = json as? MovieFeedResult else { return  nil }
+            return movieFeedResult
+        }, completion: completion)
+    }
+    
+    func getGenres(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<GenreFeed?, APIError>) -> Void) {
+        
+        let endpoint = movieFeedType
+        let request = endpoint.request
+        
+        fetch(with: request, decode: { json -> GenreFeed? in
+            guard let movieFeedResult = json as? GenreFeed else { return  nil }
             return movieFeedResult
         }, completion: completion)
     }

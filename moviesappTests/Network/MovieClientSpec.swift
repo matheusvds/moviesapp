@@ -35,10 +35,10 @@ class MovieClientSpec: QuickSpec {
             }
             
             context("when requested to get popular movies results") {
-                var movies: [Movie]!
+                var movies: Any!
                 
                 beforeEach {
-                    sut.get(from: TheMovieDBAPI.popular, completion: { (request: Result<MovieFeedResult?, APIError>) in
+                    sut.getFeed(from: TheMovieDBAPI.popular, completion: { (request) in
                         switch request {
                         case .success(let successResult):
                             guard let movieResults = successResult?.results else { return }
@@ -59,10 +59,11 @@ class MovieClientSpec: QuickSpec {
             }
             
             context("when requested to get search results") {
-                var movies: [Movie]!
+                var movies: Any!
+                
                 
                 beforeEach {
-                    sut.get(from: TheMovieDBAPI.search(nameMovie: "Nome"), completion: { (request: Result<MovieFeedResult?, APIError>) in
+                    sut.getFeed(from: TheMovieDBAPI.search(nameMovie: "Nome"), completion: { (request) in
                         switch request {
                         case .success(let successResult):
                             guard let movieResults = successResult?.results else { return }
@@ -77,22 +78,35 @@ class MovieClientSpec: QuickSpec {
                     expect(movies).toEventuallyNot(beNil())
                 }
                 
-                it("should return results on movies correct type") {
+                it("should return results on movies type") {
                     expect(movies).toEventually(beAKindOf([Movie].self))
                 }
             }
             
             context("when requested to get genres") {
-                var genres: [Genre]!
+                var genres: Any!
                 
                 beforeEach {
                     
+                    session.data = self.loadJson(fromFileName: "genres")
+                    
+                    sut.getGenres(from: TheMovieDBAPI.genres, completion: { (request) in
+                        switch request {
+                        case .success(let successResult):
+                            guard let genreResults = successResult?.genres else { return }
+                            genres = genreResults
+                        case .failure:
+                            break
+                        }
+                    })
                 }
                 
                 it("should return non nil results") {
+                    expect(genres).toEventuallyNot(beNil())
                 }
                 
-                it("should return results on movies correct type") {
+                it("should return results on genres type") {
+                    expect(genres).toEventually(beAKindOf([Genre].self))
                 }
             }
         }
@@ -104,4 +118,3 @@ class MovieClientSpec: QuickSpec {
         return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
     }
 }
-

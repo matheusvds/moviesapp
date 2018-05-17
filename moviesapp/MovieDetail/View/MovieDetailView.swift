@@ -93,7 +93,7 @@ final class MovieDetailView: UIView {
     }
     
     private func loadGenres(completion: @escaping ([Genre]) -> Void) {
-        movieClient.get(from: .genres) { (results: Result<GenreFeed?, APIError>) in
+        movieClient.getGenres(from: .genres) { results in
             switch results {
             case .success(let result):
                 guard let genres = result?.genres else { return }
