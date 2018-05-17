@@ -17,15 +17,39 @@ import UIKit
 
 class ListMoviesViewSpec: QuickSpec {
     
+    func loadJson(fromFileName fileName: String) -> Data {
+        let bundle = Bundle(for: type(of: self))
+        let filePath = bundle.path(forResource: fileName, ofType: "json")!
+        return try! Data(contentsOf: URL(fileURLWithPath: filePath), options: .uncached)
+    }
+    
     override func spec() {
     
-        describe("a 'ListMoviesView'"){
-            context("UI") {
-                it("should have the expected look and feel"){
-                    let sut = ListMovieView(frame: UIScreen.main.bounds)
-                    expect(sut) == snapshot("ListMovieView")
+        describe("ListMoviesViewController") {
+            
+            context("verify view ") {
+                var session: URLSessionMock!
+                var endpoint: TheMovieDBAPI!
+                var movieClientMock: MovieClientMock!
+                var sut: ListMoviesViewController!
+                
+                beforeEach {
+                    endpoint = .popular
+                    
+                    session = URLSessionMock()
+                    session.data = self.loadJson(fromFileName: "popularMovies")
+                    session.error = nil
+                    session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
+                    
+                    movieClientMock = MovieClientMock(session: session)
+                    sut = ListMoviesViewController(client: movieClientMock)
+                }
+                
+                it("") {
+                    sut.viewDidLoad()
                 }
             }
         }
+        
     }
 }
