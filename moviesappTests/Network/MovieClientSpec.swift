@@ -38,7 +38,7 @@ class MovieClientSpec: QuickSpec {
                 var movies: [Movie]!
                 
                 beforeEach {
-                    sut.getFeed(from: TheMovieDBAPI.popular, completion: { (request) in
+                    sut.get(from: TheMovieDBAPI.popular, completion: { (request: Result<MovieFeedResult?, APIError>) in
                         switch request {
                         case .success(let successResult):
                             guard let movieResults = successResult?.results else { return }
@@ -58,6 +58,43 @@ class MovieClientSpec: QuickSpec {
                 }
             }
             
+            context("when requested to get search results") {
+                var movies: [Movie]!
+                
+                beforeEach {
+                    sut.get(from: TheMovieDBAPI.search(nameMovie: "Nome"), completion: { (request: Result<MovieFeedResult?, APIError>) in
+                        switch request {
+                        case .success(let successResult):
+                            guard let movieResults = successResult?.results else { return }
+                            movies = movieResults
+                        case .failure:
+                            break
+                        }
+                    })
+                }
+                
+                it("should return non nil results") {
+                    expect(movies).toEventuallyNot(beNil())
+                }
+                
+                it("should return results on movies correct type") {
+                    expect(movies).toEventually(beAKindOf([Movie].self))
+                }
+            }
+            
+            context("when requested to get genres") {
+                var genres: [Genre]!
+                
+                beforeEach {
+                    
+                }
+                
+                it("should return non nil results") {
+                }
+                
+                it("should return results on movies correct type") {
+                }
+            }
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 
 class MovieDetailController: UIViewController {
     
+    let movieClient: MovieClient = MovieClient()
     let movie: Movie
     
     init(with movie: Movie) {
@@ -24,7 +25,7 @@ class MovieDetailController: UIViewController {
     
     
     override func loadView() {
-        self.view = MovieDetailView(movie: movie)
+        self.view = MovieDetailView(movie: movie, client: movieClient)
     }
     
 }

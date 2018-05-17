@@ -49,7 +49,7 @@ class ListMoviesViewController: UIViewController {
     
     
     fileprivate func requestMovies() {
-        movieClient.getFeed(from: .popular) { results in
+        movieClient.get(from: .popular) { (results: Result<MovieFeedResult?, APIError>) in
             switch results {
             case .success(let result):
                 guard let popularMovies = result?.results else { return }
@@ -61,7 +61,7 @@ class ListMoviesViewController: UIViewController {
     }
     
     fileprivate func searchMovie(movieSearch: String) {
-        movieClient.getFeed(from: .search(nameMovie: movieSearch)) { results in
+        movieClient.get(from: .search(nameMovie: movieSearch)) { (results: Result<MovieFeedResult?, APIError>) in
             switch results {
             case .success(let result):
                 guard let popularMovies = result?.results else { return }

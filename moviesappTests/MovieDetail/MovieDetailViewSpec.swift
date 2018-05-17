@@ -34,11 +34,6 @@ class MovieDetailViewSpec: QuickSpec {
                 it("should have set the movie") {
                     expect(sut.movie).toNot(beNil())
                 }
-                
-                it("should have loaded the image correctly") {
-                    expect(sut.movieImage.image).toEventuallyNot(beNil())
-                }
-                
             }
         }
     }
