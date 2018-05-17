@@ -41,8 +41,17 @@ class ListMoviesViewSpec: QuickSpec {
                     session.error = nil
                     session.response = HTTPURLResponse(url: endpoint.request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)
                     
+<<<<<<< HEAD
 //                    movieClientMock = MovieClientMock(session: session)
 //                    sut = ListMoviesViewController(client: movieClientMock)
+=======
+                    movieClientMock = MovieClientMock(session: session)
+                    sut = ListMoviesViewController(client: movieClientMock)
+                }
+                
+                it("") {
+                    sut.viewDidLoad()
+>>>>>>> development
                 }
                 
 //                it("") {
