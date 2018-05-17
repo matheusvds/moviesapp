@@ -74,9 +74,9 @@ class ListMoviesViewController: UIViewController {
 
     fileprivate func setupDatasourceAndDelegates() {
         self.movieDatasource = ListMoviesDatasource(listMovies: [], collectionView: listMovieView.collectionView)
+        self.movieDatasource?.delegate = self
     }
 }
-
 
 extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -93,3 +93,9 @@ extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsU
     }
 }
 
+extension ListMoviesViewController: MoviesDatasourceDelegateProtocol {
+    func didSelectCell(with movie: Movie) {
+        let detailVC = MovieDetailController(with: movie)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
