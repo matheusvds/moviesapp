@@ -41,7 +41,9 @@ final class ListMovieView: UIView {
     lazy var searchBar: UISearchBar = {
        let view = UISearchBar()
         view.placeholder = "Digite o nome do filme"
-        view.isTranslucent = true
+        view.barTintColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
+        view.isTranslucent = false
+        view.layer.borderColor = UIColor.white.cgColor
         view.delegate = self
         return view
     }()
