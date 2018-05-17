@@ -12,6 +12,9 @@ import SnapKit
 
 final class ListMovieView: UIView {
     
+    // MARK: Properties
+    weak var searchDelegate: ListMoviewSearchProtocol?
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setupView()
@@ -35,23 +38,54 @@ final class ListMovieView: UIView {
         return flowLayout
     }()
     
+    lazy var searchBar: UISearchBar = {
+       let view = UISearchBar()
+        view.placeholder = "Digite o nome do filme"
+        view.barTintColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
+        view.isTranslucent = false
+        view.layer.borderColor = UIColor.white.cgColor
+        view.delegate = self
+        return view
+    }()
+    
+    
+    // MARK: Functions
+    
 }
 
 extension ListMovieView: BaseViewProtocol {
     
     func buildViewHierarchy() {
+        self.addSubview(self.searchBar)
         self.addSubview(self.collectionView)
     }
     
     func setupConstraints() {
         
-        self.collectionView.snp.makeConstraints { make in
+        self.searchBar.snp.makeConstraints { make in
             make.left.equalTo(self)
             make.right.equalTo(self)
             make.top.equalTo(self)
-            make.bottom.equalTo(self)
         }
         
+        self.collectionView.snp.makeConstraints { make in
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+            make.top.equalTo(self.searchBar.snp.bottom)
+            make.bottom.equalTo(self)
+        }
+    }
+}
+
+extension ListMovieView: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if !searchText.isEmpty {
+            self.searchDelegate?.searchMovies(nameMovie: searchText)
+        } else {
+            self.searchDelegate?.searchAllMovies()
+        }
     }
 }
 

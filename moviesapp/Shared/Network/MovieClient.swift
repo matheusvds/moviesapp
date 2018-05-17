@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MovieClient: APIClient {
+protocol BaseClient: APIClient {
+    func getFeed(from movieFeedType: TheMovieDBAPI, completion: @escaping (Result<MovieFeedResult?, APIError>) -> Void)
+}
+
+class MovieClient: BaseClient {
     
     let session: URLSession
     
@@ -41,4 +45,7 @@ class MovieClient: APIClient {
             return movieFeedResult
         }, completion: completion)
     }
+    
+    
+    
 }

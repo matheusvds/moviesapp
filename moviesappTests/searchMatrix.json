@@ -1,0 +1,237 @@
+{
+    "page":1,
+    "total_results":46,
+    "total_pages":3,
+    "results":[
+               {
+               "vote_count":3901,
+               "id":605,
+               "video":false,
+               "vote_average":6.4,
+               "title":"The Matrix Revolutions",
+               "popularity":18.226201,
+               "poster_path":"\/sKogjhfs5q3azmpW7DFKKAeLEG8.jpg",
+               "original_language":"en",
+               "original_title":"The Matrix Revolutions",
+               "genre_ids":[
+                            12,
+                            28,
+                            53,
+                            878
+                            ],
+               "backdrop_path":"\/pdVHUsb2eEz9ALNTr6wfRJe5xVa.jpg",
+               "adult":false,
+               "overview":"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",
+               "release_date":"2003-11-05"
+               },
+               {
+               "vote_count":11,
+               "id":221495,
+               "video":false,
+               "vote_average":6.2,
+               "title":"The Matrix Recalibrated",
+               "popularity":2.926943,
+               "poster_path":"\/sVP2PpetwT8Qg82M48tYA0ILije.jpg",
+               "original_language":"en",
+               "original_title":"The Matrix Recalibrated",
+               "genre_ids":[
+                            99,
+                            878
+                            ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"The making of Matrix Revolutions, The (2003) is briefly touched on here in this documentary. Interviews with various cast and crew members inform us how they were affected by the deaths of Gloria Foster and Aaliyah, and also delve into the making of the visual effects that takes up a lot of screen time. Written by Rhyl Donnelly",
+               "release_date":"2004-04-06"
+               },
+               {
+               "vote_count":2,
+               "id":51767,
+               "video":false,
+               "vote_average":5.5,
+               "title":"Sexual Matrix",
+               "popularity":1.518836,
+               "poster_path":"\/leZ7bOP0wSvtweHHYwDze4m7oMr.jpg",
+               "original_language":"en",
+               "original_title":"Sexual Matrix",
+               "genre_ids":[
+                            878
+                            ],
+               "backdrop_path":"\/gIWzjbtd2XYPnu1zttI8fzG93cU.jpg",
+               "adult":false,
+               "overview":"\"Sexual Matrix\" is about a matrix that is sexual. A horny professor decides to ask his students all about their sexual fantasies. Of course he does. So while they're describing their wildest dreams, he plugs them into his matrix machine and it lets them live out their fantasies. It seems so real! Mia Zottoli shows up to assist the professor in his quest to know what turns the whole campus on",
+               "release_date":"2000-04-01"
+               },
+               {
+               "vote_count":15,
+               "id":33322,
+               "video":false,
+               "vote_average":6.2,
+               "title":"Armitage III: Poly Matrix",
+               "popularity":2.695659,
+               "poster_path":"\/ojEkwB1ZVFighEWv3IAJ4H0ck1F.jpg",
+               "original_language":"ja",
+               "original_title":"アミテージ・ザ・サード POLY-MATRIX",
+               "genre_ids":[
+                            16,
+                            878,
+                            53
+                            ],
+               "backdrop_path":"\/zY8YvEUXwvsQFcQmzqyVQA5wq5j.jpg",
+               "adult":false,
+               "overview":"Ross Sylibus is assigned to a police unit on a Martian colony, to find that women are being murdered by a psychotic named D'anclaude. He is assigned a very unorthodox partner named Naomi Armitage, who seems to have links to the victims. To stir things up more, every victim is found to be an illegally made third-generation android.",
+               "release_date":"1996-06-25"
+               },
+               {
+               "vote_count":16,
+               "id":21769,
+               "video":false,
+               "vote_average":6.4,
+               "title":"Armitage: Dual Matrix",
+               "popularity":2.405045,
+               "poster_path":"\/oKP0UiMxSGT9J7wpPZnFwW4z2YY.jpg",
+               "original_language":"ja",
+               "original_title":"アミテージ・ザ・サード DUAL-MATRIX",
+               "genre_ids":[
+                            53,
+                            28,
+                            16,
+                            878,
+                            12
+                            ],
+               "backdrop_path":"\/95etXXpKuKsYFy1Cpa0ZXSTqBGk.jpg",
+               "adult":false,
+               "overview":"Naomi Armitage and Ross Sylibus have changed their names and live with their daughter Yoko as a happy and normal family on Mars — until an android riot breaks out at an anti-matter plant on Earth.",
+               "release_date":"2002-03-22"
+               },
+               {
+               "vote_count":0,
+               "id":305374,
+               "video":false,
+               "vote_average":0,
+               "title":"Circadian Rhythm",
+               "popularity":1.004612,
+               "poster_path":"\/A5wtJMu7UDlSe5AtIF2ZHNtB9Xv.jpg",
+               "original_language":"en",
+               "original_title":"Circadian Rhythm",
+               "genre_ids":[
+               
+               ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"",
+               "release_date":"2005-11-03"
+               },
+               {
+               "vote_count":3,
+               "id":393587,
+               "video":false,
+               "vote_average":6.3,
+               "title":"Matrix III",
+               "popularity":1.206643,
+               "poster_path":"\/msSIxWLXhfiLEUlAJ9t6keqEHRC.jpg",
+               "original_language":"en",
+               "original_title":"Matrix III",
+               "genre_ids":[
+                            16
+                            ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"An abstract computer-generated animation set to music by Terry Riley.",
+               "release_date":"1972-01-01"
+               },
+               {
+               "vote_count":1,
+               "id":107392,
+               "video":false,
+               "vote_average":6,
+               "title":"Chess Boxing Matrix",
+               "popularity":1.270113,
+               "poster_path":"\/iq8zeotrIDwjViRgnISwEwHJQ87.jpg",
+               "original_language":"zh",
+               "original_title":"小俠龍捲風",
+               "genre_ids":[
+                            28,
+                            12,
+                            27,
+                            14
+                            ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"Action packed vampire kung fu movie produced by Joseph Kuo. Jack Long portrays a fighting Taoist priest, who helps with the aid of his disciples to reunite a baby vampire with his parents from the \"King of Evil\", who has captured the young hopper to enhance his own powers.",
+               "release_date":"1988-12-09"
+               },
+               {
+               "vote_count":0,
+               "id":141225,
+               "video":false,
+               "vote_average":0,
+               "title":"Buhera mátrix",
+               "popularity":1.066419,
+               "poster_path":"\/ixZn1uPR3nw51plNEOpLuchWe7K.jpg",
+               "original_language":"hu",
+               "original_title":"Buhera mátrix",
+               "genre_ids":[
+               
+               ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"",
+               "release_date":"2007-03-29"
+               },
+               {
+               "vote_count":2,
+               "id":60215,
+               "video":false,
+               "vote_average":2.5,
+               "title":"Darkdrive",
+               "popularity":1.489342,
+               "poster_path":"\/f0IrDtE13MWFvbMQqAVJgVKfomd.jpg",
+               "original_language":"en",
+               "original_title":"Darkdrive",
+               "genre_ids":[
+                            878,
+                            53
+                            ],
+               "backdrop_path":"\/Asz7nzSbjjqJ0f0e7s2pQgCiUxq.jpg",
+               "adult":false,
+               "overview":"Set in some distant future, one man must restore order when a mainframe system crashes in a virtual reality prison where computers control the inmates thoughts.",
+               "release_date":"1996-11-01"
+               },
+               {
+               "vote_count":0,
+               "id":486584,
+               "video":false,
+               "vote_average":0,
+               "title":"Dot Matrix",
+               "popularity":1.040012,
+               "poster_path":null,
+               "original_language":"en",
+               "original_title":"Dot Matrix",
+               "genre_ids":[
+               
+               ],
+               "backdrop_path":null,
+               "adult":false,
+               "overview":"Dot Matrix is a sound and image composition of two 16mm film tracks, made by hand in a darkroom, without digital intervention. The projectors become instruments that read the images as waveforms. Colorful and fun circles are menacing when played back as sound.",
+               "release_date":"2017-01-01"
+               },
+               {
+               "vote_count":0,
+               "id":386137,
+               "video":false,
+               "vote_average":0,
+               "title":"Matrix AB",
+               "popularity":1.020182,
+               "poster_path":"\/t0IfTnOnWBrLQPoFxdtHmr4BnVS.jpg",
+               "original_language":"cs",
+               "original_title":"Matrix AB",
+               "genre_ids":[
+                            99
+                            ],
+               "backdrop_path":"\/gN1MGTNHGIPTxAgyTiJkNrfvU8U.jpg",
+               "adult":false,
+               "overview":"",
+               "release_date":"2015-10-29"
+               }
+               ]
+}

@@ -11,42 +11,37 @@ import UIKit
 class ListMoviesViewController: UIViewController {
     
     // MARK: Properties
-    let movieClient: MovieClient = MovieClient()
+    var movieClient: BaseClient
     let listMovieView: ListMovieView = ListMovieView()
     var movieDatasource: ListMoviesDatasource?
-    var searchController : UISearchController!
-
     
     override func loadView() {
         self.view = listMovieView
     }
     
+    init(client: BaseClient = MovieClient()) {
+        self.movieClient = client
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("You should't use storyboard in this app")
+    }
+    
     override func viewDidLoad() {
         self.setupDatasourceAndDelegates()
-        createSearchBar()
         self.requestMovies()
+        self.title = "Movies"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         movieDatasource?.reloadCollection()
     }
-
-    
-    fileprivate func createSearchBar() {
-        self.searchController = UISearchController(searchResultsController:  nil)
-        
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
-
-        let leftNavBarButton = UIBarButtonItem(customView: searchController.searchBar)
-        self.navigationItem.leftBarButtonItem = leftNavBarButton
-    }
-    
     
     fileprivate func requestMovies() {
         movieClient.getFeed(from: .popular) { results in
@@ -75,6 +70,17 @@ class ListMoviesViewController: UIViewController {
     fileprivate func setupDatasourceAndDelegates() {
         self.movieDatasource = ListMoviesDatasource(listMovies: [], collectionView: listMovieView.collectionView)
         self.movieDatasource?.delegate = self
+        self.listMovieView.searchDelegate = self
+    }
+}
+
+extension ListMoviesViewController: ListMoviewSearchProtocol {
+    func searchMovies(nameMovie: String) {
+        self.searchMovie(movieSearch: nameMovie)
+    }
+    
+    func searchAllMovies() {
+        self.requestMovies()
     }
 }
 
@@ -83,13 +89,8 @@ extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsU
     func updateSearchResults(for searchController: UISearchController) {
         
         if searchController.searchBar.text != ""{
-            
             self.searchMovie(movieSearch: searchController.searchBar.text!)
         }
-    }
-    
-    func didDismissSearchController(_ searchController: UISearchController) {
-        self.requestMovies()
     }
 }
 
