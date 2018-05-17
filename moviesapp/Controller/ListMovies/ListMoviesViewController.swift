@@ -74,11 +74,30 @@ class ListMoviesViewController: UIViewController {
 }
 
 extension ListMoviesViewController: ListMoviewSearchProtocol {
-    func searchAllMovies() {
-        self.requestMovies()
-    }
-    
     func searchMovies(nameMovie: String) {
         self.searchMovie(movieSearch: nameMovie)
+    }
+    
+    func searchAllMovies() {
+        self.requestMovies()
+        self.movieDatasource?.delegate = self
+    }
+}
+
+extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if searchController.searchBar.text != ""{
+            
+            self.searchMovie(movieSearch: searchController.searchBar.text!)
+        }
+    }
+}
+
+extension ListMoviesViewController: MoviesDatasourceDelegateProtocol {
+    func didSelectCell(with movie: Movie) {
+        let detailVC = MovieDetailController(with: movie)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
