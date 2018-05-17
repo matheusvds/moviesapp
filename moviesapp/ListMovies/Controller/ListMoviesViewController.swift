@@ -70,6 +70,8 @@ class ListMoviesViewController: UIViewController {
     fileprivate func setupDatasourceAndDelegates() {
         self.movieDatasource = ListMoviesDatasource(listMovies: [], collectionView: listMovieView.collectionView)
         self.listMovieView.searchDelegate = self
+        self.movieDatasource?.delegate = self
+
     }
 }
 
@@ -80,7 +82,6 @@ extension ListMoviesViewController: ListMoviewSearchProtocol {
     
     func searchAllMovies() {
         self.requestMovies()
-        self.movieDatasource?.delegate = self
         self.listMovieView.searchDelegate = self
     }
 }
