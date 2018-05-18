@@ -25,27 +25,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    private func configureTabbarController(on window: UIWindow) {
+    fileprivate func configureTabbarController(on window: UIWindow) {
         let tabbarController = UITabBarController()
         setControllers(on: tabbarController)
         window.rootViewController = tabbarController
     }
     
-    private func setControllers(on tabbarController: UITabBarController) {
+    fileprivate func setControllers(on tabbarController: UITabBarController) {
         let controllers = createControllers()
         tabbarController.viewControllers = controllers.map {
             UINavigationController(rootViewController: $0)
         }
     }
     
-    private func createControllers() -> [UIViewController] {
+    fileprivate func createControllers() -> [UIViewController] {
         let listMoviesVC = ListMoviesViewController()
         listMoviesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
         
         return [listMoviesVC]
     }
     
-    private func configureAppearance() {
+    fileprivate func configureAppearance() {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.barTintColor = UIColor(red: 247/255.0, green: 206/255.0, blue: 91/255.0, alpha: 1)
         navigationBarAppearace.isTranslucent = false
