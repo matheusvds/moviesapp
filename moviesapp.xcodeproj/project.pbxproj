@@ -225,7 +225,7 @@
 		0B45DAD5209CEAA400CD92A8 /* moviesappTests */ = {
 			isa = PBXGroup;
 			children = (
-				B21196B720ADC1F600443186 /* Mock */,
+				0BDE6AB220AF152D004694F3 /* Shared */,
 				0B096F4420AB524A002D1BEC /* MovieDetail */,
 				0B096F4320AB5238002D1BEC /* ListMovies */,
 				0BE6D19120A23D7300C24868 /* Network */,
@@ -310,6 +310,13 @@
 			name = Mock;
 			sourceTree = "<group>";
 		};
+		0BDE6AB220AF152D004694F3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		0BE6D19120A23D7300C24868 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,15 +358,6 @@
 				11420DE3209CE20200453134 /* LaunchScreen.storyboard */,
 			);
 			path = moviesapp;
-			sourceTree = "<group>";
-		};
-		B21196B720ADC1F600443186 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				B21196BA20ADC22C00443186 /* popularMovies.json */,
-				B21196BC20ADC28D00443186 /* MovieClientMock.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		B24B524120A1EC2100B62D84 /* Error */ = {
@@ -524,7 +522,6 @@
 				B21196BD20ADC28D00443186 /* MovieClientMock.swift in Sources */,
 				0BE6D19920A3A4B300C24868 /* URLSessionMock.swift in Sources */,
 				0BE6D19520A251DE00C24868 /* APIClientSpec.swift in Sources */,
-				B21196B920ADC21500443186 /* ListMoviesDatasourceSpec.swift in Sources */,
 				0BE6D19320A23DC100C24868 /* EndpointSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
