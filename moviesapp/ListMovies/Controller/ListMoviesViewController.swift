@@ -73,11 +73,16 @@ class ListMoviesViewController: UIViewController {
         self.movieDatasource?.delegate = self
 
     }
+    
+    
 }
 
 extension ListMoviesViewController: ListMoviewSearchProtocol {
+    
     func searchMovies(nameMovie: String) {
-        self.searchMovie(movieSearch: nameMovie)
+            _ = Debouncer(delay: 0.3) {
+            self.searchMovie(movieSearch: nameMovie)
+        }.call()
     }
     
     func searchAllMovies() {
@@ -92,7 +97,7 @@ extension ListMoviesViewController: UISearchControllerDelegate, UISearchResultsU
     func updateSearchResults(for searchController: UISearchController) {
         
         if searchController.searchBar.text != ""{
-            self.searchMovie(movieSearch: searchController.searchBar.text!)
+                self.searchMovie(movieSearch: searchController.searchBar.text!)
         }
     }
 }
